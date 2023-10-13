@@ -10,8 +10,8 @@ const userArray = [
 ]
 
 btn.addEventListener("click", function(){
-    userArray.splice(0,userArray.length)
     let userValue = inputEl.value;
+    userArray.splice(0,userArray.length)
     for(let i = 1; i <= userValue; i++){
         userArray.push(getRndInteger (0,100));
     }
@@ -23,7 +23,12 @@ btn.addEventListener("click", function(){
 
 btn2.addEventListener("click", function(){
     let print = inputEl2.value;
-    resultEl2.innerHTML = userArray.slice(0,print)
+    if(print > userArray.length){
+        resultEl2.innerHTML = "inserisci valore corretto!"
+    } else {
+        resultEl2.innerHTML = userArray.slice(0,print)
+    }
+    console.log(userArray)
     resultEl2.classList.remove("d-none")
-}
+    }
 )
